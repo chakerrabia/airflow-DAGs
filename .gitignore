@@ -1,0 +1,6 @@
+log/
+processed_data/
+raw_data/
+__pycache__
+logs/
+.env
