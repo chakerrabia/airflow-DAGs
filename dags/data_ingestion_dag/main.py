@@ -9,6 +9,8 @@ import os
 
 dag_path = os.getcwd()
 
+# Rssource : https://www.youtube.com/watch?v=28UI_Usxbqo&ab_channel=MaxcoTecLearning
+
 
 def transform_data():
     # load data from csv
@@ -34,10 +36,9 @@ def load_data():
         conn = sqlite3.connect(
             f"{dag_path}/processed_data/data_ingestion_dag/export_db.db"
         )
-        data: pd.DataFrame = pd.read_csv(	
+        data: pd.DataFrame = pd.read_csv(
             f"{dag_path}/processed_data/data_ingestion_dag/processed_data.csv"
         )
-        print(data)
         data.to_sql("bookings", conn, if_exists="append", index=False)
     except Error as e:
         print(e)
